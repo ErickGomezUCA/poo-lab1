@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Main {
   public static void main(String[] args) {
 
+    boolean numberError = false;
     int option = 0;
     double result = 0;
     double firstNumber;
@@ -11,6 +12,8 @@ public class Main {
 
     // Bucle para volver a entrar al menu
     do {
+      numberError = false;
+
       System.out.print("[1] Add\n[2] Subtract\n[3] Multiply\n[4] Divide\n[0] Exit\n> ");
       option = sc.nextInt();
 
@@ -46,12 +49,19 @@ public class Main {
           break;
     
           case 4: 
+          if (secondNumber == 0) {
+            System.out.println("Error: Denominador cannot be 0");
+            numberError = true;
+          } else {
             result = Calculator.divide(firstNumber, secondNumber);
+          }
           break;
         }
 
         // Imprimir resultado
-        System.out.printf("Result: %.2f\n", result);
+        if (!numberError) {
+          System.out.printf("Result: %.2f", result);
+        }
       }
     } while (option != 0);
   }
