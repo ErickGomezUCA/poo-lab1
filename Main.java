@@ -50,7 +50,7 @@ public class Main {
     
           case 4: 
           if (secondNumber == 0) {
-            System.out.println("Error: Denominador cannot be 0");
+            System.out.println("Error: Denominator cannot be 0");
             numberError = true;
           } else {
             result = Calculator.divide(firstNumber, secondNumber);
