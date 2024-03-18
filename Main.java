@@ -5,8 +5,11 @@ public class Main {
 
     int option = 0;
     double result = 0;
+    double firstNumber;
+    double secondNumber;
     Scanner sc = new Scanner(System.in);
 
+    // Bucle para volver a entrar al menu
     do {
       System.out.print("[1] Add\n[2] Subtract\n[3] Multiply\n[4] Divide\n[0] Exit\n> ");
       option = sc.nextInt();
@@ -15,18 +18,20 @@ public class Main {
       if (option == 0) {
         System.out.println("Exiting...");
 
-        // Error handling
-      } else if (option < 1 && option > 4) {
-        System.out.println("Insert a valid option");
+        // Manejando errores de menu
+      } else if (option < 1 || option > 4) {
+        System.out.println("\nInsert a valid option...\n");
 
+        // Opciones válidas
       } else {
-        // Valid options
-        System.out.print("Insert first number:\n> ");
-        double firstNumber = sc.nextDouble();
+        // Entrada de valores
+        System.out.print("\nInsert first number:\n> ");
+        firstNumber = sc.nextDouble();
     
         System.out.print("Insert second number:\n> ");
-        double secondNumber = sc.nextDouble();
+        secondNumber = sc.nextDouble();
 
+        // Considerando la opcion ingresada
         switch(option) {
           case 1:
             result = Calculator.add(firstNumber, secondNumber);
@@ -45,6 +50,7 @@ public class Main {
           break;
         }
 
+        // Imprimir resultado
         System.out.printf("Result: %.2f\n", result);
       }
     } while (option != 0);
